@@ -6,7 +6,7 @@ tts = pyttsx3.init()
 
 count= 0 
 
-ip_addresss = "192.168.1.138"
+ip_addresss = "127.0.0.1"
 
 while True: 
      pingip = subprocess.Popen(['ping' , ip_addresss] , stdout=subprocess.PIPE)
