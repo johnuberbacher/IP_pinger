@@ -6,17 +6,13 @@ tts = pyttsx3.init()
 
 count= 0 
 
-ip_addresss = "127.0.0.1"
+ip_addresss = "192.168.1.138"
 
 while True: 
      pingip = subprocess.Popen(['ping' , ip_addresss] , stdout=subprocess.PIPE)
-     time.sleep(10)
+     time.sleep(60)
      if(pingip.poll() == 0 ):
+         print("Device " + ip_addresss + ": connected")
 
-         if(count  == 0):
-            print("Device " + ip_addresss + ": connected")
-
-     elif(pingip.poll() == 1):
-
-         if (count == 1 ):
-            print("Device " + ip_addresss + ": disconnected")
+     elif(pingip.poll() != 0):
+         print("Device " + ip_addresss + ": disconnected")
